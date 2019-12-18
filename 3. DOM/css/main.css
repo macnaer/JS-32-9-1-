@@ -67,6 +67,10 @@ textarea.form-control {
   background-color: transparent;
   color: #fff;
 }
+.printUser {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 .userTable {
   width: 100%;
 }

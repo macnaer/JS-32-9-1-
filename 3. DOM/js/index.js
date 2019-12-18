@@ -1,8 +1,9 @@
 window.addEventListener("load", Init);
 
+let ID = 1;
 let userArr = [
   {
-    ID: "1",
+    ID: "ID",
     Name: "Name",
     Email: "Email",
     TelNumber: "Tel. Number",
@@ -24,7 +25,7 @@ function GetData() {
   const telNumber = document.querySelector(".telNumber").value;
 
   const formData = {
-    ID: "1",
+    ID: ID++,
     Name: username,
     Email: email,
     TelNumber: telNumber,
@@ -63,7 +64,7 @@ function PrintClients() {
 
   let chkTable = document.getElementsByClassName("userTable");
   if (chkTable.length > 0) {
-    printUser.firstChild.remove();
+    printUser.removeChild(printUser.lastChild);
   }
 
   let table = document.createElement("table");
