@@ -13,9 +13,16 @@ let userArr = [
 
 function Init() {
   const sendMSG = document.querySelector(".sendMSG");
+  const URL =
+    "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+
+  let city = "Rivne";
+  const TerminalURL = `https://api.privatbank.ua/p24api/infrastructure?json&tso&address=&city=${city}`;
+
   sendMSG.addEventListener("click", GetData);
   PrintClients();
-  Request();
+  Request(TerminalURL, Test2);
+  Request(URL, Test1);
 }
 
 function GetData() {
@@ -36,18 +43,15 @@ function GetData() {
   PrintClients();
 }
 
-function Request() {
-  const URL =
-    "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
-
-  let xhr = new XMLHttpRequest();
+function Request(URL, callback) {
   //   console.log(xhr);
+  let xhr = new XMLHttpRequest();
   xhr.open("GET", URL, true);
-  xhr.onreadystatechange = function(aEvt) {
+  xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
         const data = JSON.parse(xhr.responseText);
-        console.log(data);
+        callback(data);
       } else {
         console.log("Error loading page\n");
       }
@@ -56,7 +60,15 @@ function Request() {
   xhr.send();
 }
 
-function PrintClients() {
+function Test1(data) {
+  console.log("Test1 ", data);
+}
+
+function Test2(data) {
+  console.log("Test2 ", data);
+}
+
+function PrintClients(data) {
   console.log("userArr", userArr);
 
   let printUser = document.querySelector(".printUser");
