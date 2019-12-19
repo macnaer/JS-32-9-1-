@@ -47,6 +47,7 @@ function Request(URL, callback) {
   //   console.log(xhr);
   let xhr = new XMLHttpRequest();
   xhr.open("GET", URL, true);
+  xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
