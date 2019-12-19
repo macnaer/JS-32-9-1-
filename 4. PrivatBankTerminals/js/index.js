@@ -84,6 +84,20 @@ function ShowTerminals({ devices }) {
 }
 
 function ShowInMap() {
-  console.log(this.value);
+  const id = this.value;
+  console.log("id", id);
   console.log("DATAARR ", DARAARR);
+  let { latitude, longitude } = DARAARR[id];
+  console.log("longitude", longitude, "latitude", latitude);
+  console.log(typeof latitude);
+
+  initMap(latitude, longitude);
 }
+let map;
+function initMap(newLet = 50.61681, newLng = 26.27306) {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: newLet, lng: newLng },
+    zoom: 10
+  });
+}
+initMap();

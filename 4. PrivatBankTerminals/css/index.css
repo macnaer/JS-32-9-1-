@@ -74,3 +74,6 @@ textarea.form-control {
 .userTable {
   width: 100%;
 }
+#map {
+  height: 500px;
+}
