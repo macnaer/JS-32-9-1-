@@ -76,6 +76,10 @@ rex.DogEat(20);
 rex.ShowDog();
 rex.Hunt(20);
 rex.ShowDog();
+rex.DogSleep();
+setTimeout(() => {
+  rex.ShowDog();
+}, 3000);
 
 // let Bobik = new Dog("Bobik", "Taxa", 3, 100);
 // Bobik.ShowDog();
