@@ -51,27 +51,53 @@ class Dog {
   }
 }
 
-let Bobik = new Dog("Bobik", "Taxa", 3, 100);
-Bobik.ShowDog();
-Bobik.SetName("Barsik");
-Bobik.ShowDog();
-console.log(Bobik.GetBreed());
-Bobik.DogPlay(50);
-Bobik.ShowDog();
-Bobik.DogEat(10);
-Bobik.DogPlay(50);
-Bobik.ShowDog();
-Bobik.DogSleep();
-Bobik.ShowDog();
-Bobik.DogPlay(20);
+class HanterDog extends Dog {
+  constructor(_name, _breed, _age, _energy, power) {
+    super(_name, _breed, _age, _energy);
+    this.power = power;
+  }
 
-localStorage.setItem("Name", Bobik._name);
-localStorage.setItem("Breed", Bobik._breed);
-localStorage.setItem("Age", Bobik._age);
-localStorage.setItem("Energy", Bobik._energy);
+  Hunt(energy) {
+    this._energy -= energy;
+    this.power -= 10;
+  }
+  ShowDog() {
+    console.log(
+      `Name: ${this._name} \nBreed: ${this._breed} \nAge: ${this._age} \nEnergy: ${this._energy} \nPower: ${this.power}`
+    );
+  }
+}
 
-nameLS = localStorage.getItem("Name");
+let rex = new HanterDog("Rex", "Russian Fast", 4, 99, 50);
+rex.ShowDog();
+rex.DogPlay(30);
+rex.ShowDog();
+rex.DogEat(20);
+rex.ShowDog();
+rex.Hunt(20);
+rex.ShowDog();
 
-console.log("Name from LS =>", nameLS);
+// let Bobik = new Dog("Bobik", "Taxa", 3, 100);
+// Bobik.ShowDog();
+// Bobik.SetName("Barsik");
+// Bobik.ShowDog();
+// console.log(Bobik.GetBreed());
+// Bobik.DogPlay(50);
+// Bobik.ShowDog();
+// Bobik.DogEat(10);
+// Bobik.DogPlay(50);
+// Bobik.ShowDog();
+// Bobik.DogSleep();
+// Bobik.ShowDog();
+// Bobik.DogPlay(20);
+
+// localStorage.setItem("Name", Bobik._name);
+// localStorage.setItem("Breed", Bobik._breed);
+// localStorage.setItem("Age", Bobik._age);
+// localStorage.setItem("Energy", Bobik._energy);
+
+// nameLS = localStorage.getItem("Name");
+
+// console.log("Name from LS =>", nameLS);
 
 localStorage.clear();
