@@ -1,0 +1,30 @@
+.div1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 300px;
+    background: red;
+    cursor: pointer;
+}
+
+.div2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    background: blue;
+    cursor: pointer;
+}
+
+.div3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 120px;
+    background: yellow;
+    cursor: pointer;
+}
+
